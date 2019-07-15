@@ -37,8 +37,7 @@ Back
                 [(ngModel)] = "task.completed">
                                       
     </div>
-    <button type="button" 
-            class = "btn btn-info"
+    <button  class = "btn btn-info"
             [disabled] = "detailsForm.form.pristine||!detailsForm.form.valid"
             (click) = "saveTask()"
             >Save</button>

@@ -16,9 +16,9 @@ import { Location } from '@angular/common'
 })
 export class TaskDetailsComponent implements OnInit {
  @Input('selected-task') task:Task;
- @Output('contactUpdated') contactUpdated:EventEmitter<any> = new EventEmitter();
- 
- public addNewMode:boolean = false;
+ @Output('taskUpdated') taskUpdated:EventEmitter<any> = new EventEmitter();
+  public addNewMode:boolean = false;
+
   constructor(private dataSource:TaskService,
               private router:Router,
               private location:Location) {
@@ -46,11 +46,11 @@ export class TaskDetailsComponent implements OnInit {
     this.dataSource.saveTask(this.task)
                   .subscribe((task)=>{
                     this.task=task,
-                    this.contactUpdated.emit();
+                    this.taskUpdated.emit();
                     
                     },
                   (err)=>console.log(err),
-                  ()=>console.log(`add/update completed addNewMode: ${this.task.isNew}`));
+                  ()=>console.log('add/update completed'));
     
                
     

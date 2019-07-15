@@ -21,16 +21,15 @@ export class TaskListComponent implements OnInit {
   ngOnInit() {
     console.log('list component on init');
     this.getTasks();
-    console.log(`${this.taskService.newMode}`);
+    
     
   }
 
   getTasks():void{
     this.taskService.getTaskList()
-                    .subscribe((list)=>{this.tasks = list,
-                      console.log(list)},
-                    (err)=>console.log(err),
-                    ()=>console.log(`${this.tasks.pop()} task list loaded`));
+                    .subscribe((list)=>this.tasks = list,
+                     (err)=>console.log(err),
+                    ()=>console.log('task list loaded'));
                     
   }
 
