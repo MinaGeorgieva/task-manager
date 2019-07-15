@@ -1,0 +1,48 @@
+<div class = "col-sm-6">
+
+<h3>Task Details</h3>
+<button  class ="btn btn-info"
+         *ngIf = "addNewMode"
+         (click) = "goBack()">
+Back
+</button>
+<form #detailsForm ="ngForm" >
+    <div class="form-group ml-20">
+        <label>
+            Title of task:
+            <span class=" text-danger">*</span>
+        </label>
+        <input  type="text" 
+                placeholder="Title"
+                class="form-control"
+                required
+                name = "first"
+                #title = "ngModel"
+                [(ngModel)] = "task.title">
+                                      
+    </div>
+    <div class= "text-danger"
+            [hidden] = "title.valid||title.pristine">
+               Required Field
+</div>
+    <div class="form-group">
+        <label>
+            Check if completed:
+            <span class=" text-danger">*</span>
+        </label>
+        <input  type="checkbox" 
+                placeholder="checked if completed"
+                name = "completed"
+                #completed = "ngModel"
+                [(ngModel)] = "task.completed">
+                                      
+    </div>
+    <button type="button" 
+            class = "btn btn-info"
+            [disabled] = "detailsForm.form.pristine||!detailsForm.form.valid"
+            (click) = "saveTask()"
+            >Save</button>
+                  
+           
+</form>
+

@@ -1,0 +1,49 @@
+<div class = "row">
+    <div class = "col-sm-8">
+        <a class ="btn btn-info m-2"
+           routerLink = "/add-new">
+        Add New Task
+        </a> 
+        <div class = "list-group ml-2" >
+                <a *ngFor="let task of tasks"
+                    class = "list-group-item list-group-item-action" 
+                    (click)="onSelectedTask(task._id)"
+                    [class.active] = "task === selectedTask">
+                <button type="button" 
+                        class="btn btn-info float-right mt-3 ml-2" 
+                        (click) = "deleteTask($event, task._id)">
+                Delete
+                </button>
+                <button type="button" 
+                class="btn btn-info float-right mt-3" 
+                (click) = "[selected-task]">
+                Edit
+                </button>
+                <h4>
+                    <input type = "checkbox"
+                         class = "mr-2"
+                         [checked] = "task.completed"
+                         [disabled]="true">
+                         <span  [ngClass]= "task.completed? 'del':''">{{task.title}}</span>
+                </h4>
+                <span class="badge badge-pill badge-info">          
+                          Last modified: {{task.lastModified|date:'medium'}}
+                </span>
+            </a>
+            </div>
+        </div>
+  
+    <div    class = "col-sm-4"
+            *ngIf = "selectedTask">
+
+    <app-task-details
+        [selected-task]="selectedTask"
+        (contactUpdated) = "getTasks()">
+    
+    </app-task-details>
+   
+    </div>
+  
+    
+   
+</div>

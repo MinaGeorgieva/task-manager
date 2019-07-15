@@ -1,0 +1,36 @@
+.del{
+    text-decoration: line-through;
+    
+}
+span{
+    font-family: Calibri;
+    
+}
+
+:host
+{
+    border: 2px solid dimgray;
+    display: block;
+    padding: 20px;
+}
+
+.logo {
+    height: 50px;
+    width: 100px;
+    padding: 10px;
+    margin-right: 300px;
+    
+}
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    
+  }
+
+h1{
+    font-family: Calibri;
+    text-shadow: -1px 0 #0099CC, 0 1px #0099CC, 1px 0 #0099CC, 0 -1px #0099CC;
+    color:whitesmoke;
+}
+
